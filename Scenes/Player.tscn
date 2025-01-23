@@ -144,5 +144,5 @@ position = Vector2(-1.47601, 6.51907)
 shape = SubResource("RectangleShape2D_wgfaw")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.7
+wait_time = 0.2
 one_shot = true
