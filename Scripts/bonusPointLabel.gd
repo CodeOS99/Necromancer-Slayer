@@ -3,7 +3,7 @@ var speed = 5.0
 var maxPoints = 7
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	text = "You scored " + str(Globals.bonusPoints) + (" point!" if Globals.bonusPoints == 1 else " points") + " out of " + str(maxPoints) + " total points!" + ("" if Globals.bonusPoints != maxPoints else "\nNice! You got all " + str(maxPoints) + "!")
+	text = "You scored " + str(Globals.bonusPoints) + (" point!" if Globals.bonusPoints == 1 else " points") + " out of " + str(maxPoints) + " total points!" + ("\nTry to get all of them!" if Globals.bonusPoints != maxPoints else "\nNice! You got all " + str(maxPoints) + "!")
 	
 func _process(delta: float) -> void:
 	if Globals.bonusPoints == maxPoints:
