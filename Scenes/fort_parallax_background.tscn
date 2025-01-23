@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdcnupausuxrn"]
+
+[ext_resource type="Texture2D" uid="uid://bk2ppwibo48nk" path="res://Assets/Environments/Fort of Illusion/Fort of Illusion Files/Layers/back.png" id="1_e17o6"]
+[ext_resource type="Texture2D" uid="uid://c0ktcs8556iwx" path="res://Assets/Environments/Fort of Illusion/Fort of Illusion Files/Layers/front.png" id="2_x1wrl"]
+[ext_resource type="Texture2D" uid="uid://5q5r1qqcsyd8" path="res://Assets/Environments/Fort of Illusion/Fort of Illusion Files/Layers/mountains.png" id="2_x3r7l"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.001, 0.001)
+motion_mirroring = Vector2(5540.44, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-705.706, 708.751)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("1_e17o6")
+
+[node name="Back2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(214.294, 708.751)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("1_e17o6")
+
+[node name="Back3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1142.29, 708.751)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("1_e17o6")
+
+[node name="Back4" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(2070.29, 708.751)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("1_e17o6")
+
+[node name="Back5" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(2998.29, 708.751)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("1_e17o6")
+
+[node name="Back6" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(3926.29, 708.751)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("1_e17o6")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(5540.44, 0)
+
+[node name="Mountains" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(335.68, 1352)
+scale = Vector2(11.81, 11.81)
+texture = ExtResource("2_x3r7l")
+
+[node name="Mountains2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(2895.68, 1352)
+scale = Vector2(11.81, 11.81)
+texture = ExtResource("2_x3r7l")
+
+[node name="Front" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(-744, 2112)
+scale = Vector2(8.635, 8.635)
+texture = ExtResource("2_x1wrl")
+
+[node name="Front2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(160, 2112)
+scale = Vector2(8.635, 8.635)
+texture = ExtResource("2_x1wrl")
+
+[node name="Front3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1624, 2112)
+scale = Vector2(8.635, 8.635)
+texture = ExtResource("2_x1wrl")
+
+[node name="Front4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(3448, 2112)
+scale = Vector2(8.635, 8.635)
+texture = ExtResource("2_x1wrl")

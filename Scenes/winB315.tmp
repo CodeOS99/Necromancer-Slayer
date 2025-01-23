@@ -1,0 +1,269 @@
+[gd_scene load_steps=15 format=3 uid="uid://blmx3b47tj38b"]
+
+[ext_resource type="FontFile" uid="uid://cr21hq35enhfi" path="res://Assets/Fonts/Raleway-ExtraBold.ttf" id="1_lhsf6"]
+[ext_resource type="Script" path="res://Scenes/start_button.gd" id="2_8ieic"]
+[ext_resource type="Script" path="res://Scripts/rgbText.gd" id="2_jkm28"]
+[ext_resource type="Script" path="res://Scenes/quit_button.gd" id="3_6ur0w"]
+[ext_resource type="Script" path="res://Scripts/parallax_auto_mover.gd" id="4_cxjmw"]
+[ext_resource type="Texture2D" uid="uid://dd7ef1sdaiwxe" path="res://Assets/Environments/SunnyLand/Layers/back.png" id="5_lr82b"]
+[ext_resource type="Texture2D" uid="uid://ica85qnejmv6" path="res://Assets/Environments/SunnyLand/Props/pine.png" id="6_0j725"]
+[ext_resource type="Texture2D" uid="uid://k4ucur5muqxf" path="res://Assets/Environments/SunnyLand/Props/palm.png" id="7_55ofi"]
+[ext_resource type="Texture2D" uid="uid://bae60e7o33xf4" path="res://Assets/Environments/SunnyLand/Props/big-house.png" id="8_8l4bt"]
+[ext_resource type="Texture2D" uid="uid://dj3l61tix36sq" path="res://Assets/Environments/SunnyLand/Props/tree-house.png" id="9_wimyd"]
+[ext_resource type="Texture2D" uid="uid://dvyuf707x1adk" path="res://Assets/Environments/SunnyLand/Props/shrooms.png" id="10_u2fd6"]
+[ext_resource type="Texture2D" uid="uid://bvu4mc47c2clu" path="res://Assets/Environments/SunnyLand/Layers/middle.png" id="11_bmh83"]
+[ext_resource type="Script" path="res://Scripts/particles_manager.gd" id="13_ldcc6"]
+
+[sub_resource type="Curve" id="Curve_vy3o3"]
+_data = [Vector2(0, 0.169173), 0.0, 0.0, 0, 0, Vector2(0.996337, 0.315789), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Win" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.292969
+anchor_right = 0.707031
+anchor_bottom = 0.182099
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_lhsf6")
+theme_override_font_sizes/font_size = 100
+text = "YOU WIN!"
+script = ExtResource("2_jkm28")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayAgain" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.388455
+anchor_top = 0.440586
+anchor_right = 0.611545
+anchor_bottom = 0.559414
+offset_bottom = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Play Again"
+script = ExtResource("2_8ieic")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.450955
+anchor_top = 0.802469
+anchor_right = 0.549045
+anchor_bottom = 0.921296
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+script = ExtResource("3_6ur0w")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scale = Vector2(0.395, 0.395)
+transform = Transform2D(0.395, 0, 0, 0.395, 0, 0)
+script = ExtResource("4_cxjmw")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.001, 0.001)
+motion_mirroring = Vector2(5540.44, 0)
+
+[node name="Back" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1611.84, 946.4)
+scale = Vector2(14.4467, 14.4467)
+texture = ExtResource("5_lr82b")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.72, 0.72)
+motion_mirroring = Vector2(5540.44, 0)
+
+[node name="Pine2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2944.69, 1321.05)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("6_0j725")
+
+[node name="Pine3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2744.69, 1337.05)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("6_0j725")
+
+[node name="Palm4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3832.69, 1305.05)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("7_55ofi")
+
+[node name="Big-house" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4387.34, 1339.24)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("8_8l4bt")
+
+[node name="Tree-house" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3617.72, 1336.71)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("9_wimyd")
+
+[node name="Shrooms" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-920, 1136)
+rotation = -1.0472
+scale = Vector2(3.9, 5.134)
+texture = ExtResource("10_u2fd6")
+
+[node name="Pine" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1832, 1208)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("6_0j725")
+
+[node name="Palm" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-464, 1272)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("7_55ofi")
+
+[node name="Palm2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1408, 1304)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("7_55ofi")
+
+[node name="Palm3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2184, 1296)
+scale = Vector2(3.035, 3.035)
+texture = ExtResource("7_55ofi")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(1.59, 1.59)
+motion_mirroring = Vector2(5540.44, 0)
+
+[node name="Middle" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-760, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="Middle2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(40.0001, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="Middle3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(832, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="Middle4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1632, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="Middle5" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2424, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="Middle6" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(3216, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="Middle7" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(3984, 1840)
+scale = Vector2(4.571, 4.571)
+texture = ExtResource("11_bmh83")
+
+[node name="particlesManager" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("13_ldcc6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/particlesManager"]
+position = Vector2(552, 40)
+amount = 16
+lifetime = 5.0
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.04
+initial_velocity_max = 130.08
+angular_velocity_min = 280.97
+angular_velocity_max = 280.97
+tangential_accel_min = 11.38
+tangential_accel_max = 11.38
+scale_amount_min = 50.0
+scale_amount_max = 75.0
+scale_amount_curve = SubResource("Curve_vy3o3")
+color = Color(1, 0, 0, 1)
+anim_speed_min = 7.01
+anim_speed_max = 62.56
+anim_offset_min = 0.3151
+anim_offset_max = 0.637
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="CanvasLayer/particlesManager"]
+position = Vector2(552, 40)
+amount = 16
+lifetime = 5.0
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.04
+initial_velocity_max = 130.08
+angular_velocity_min = 280.97
+angular_velocity_max = 280.97
+tangential_accel_min = 11.38
+tangential_accel_max = 11.38
+scale_amount_min = 50.0
+scale_amount_max = 75.0
+scale_amount_curve = SubResource("Curve_vy3o3")
+color = Color(1, 0.972549, 0, 1)
+anim_speed_min = 7.01
+anim_speed_max = 62.56
+anim_offset_min = 0.3151
+anim_offset_max = 0.637
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="CanvasLayer/particlesManager"]
+position = Vector2(552, 40)
+amount = 16
+lifetime = 5.0
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.04
+initial_velocity_max = 130.08
+angular_velocity_min = 280.97
+angular_velocity_max = 280.97
+tangential_accel_min = 11.38
+tangential_accel_max = 11.38
+scale_amount_min = 50.0
+scale_amount_max = 75.0
+scale_amount_curve = SubResource("Curve_vy3o3")
+color = Color(0, 0.972549, 0, 1)
+anim_speed_min = 7.01
+anim_speed_max = 62.56
+anim_offset_min = 0.3151
+anim_offset_max = 0.637
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="CanvasLayer/particlesManager"]
+position = Vector2(552, 40)
+amount = 16
+lifetime = 5.0
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.04
+initial_velocity_max = 130.08
+angular_velocity_min = 280.97
+angular_velocity_max = 280.97
+tangential_accel_min = 11.38
+tangential_accel_max = 11.38
+scale_amount_min = 50.0
+scale_amount_max = 75.0
+scale_amount_curve = SubResource("Curve_vy3o3")
+color = Color(0.853178, 0.748687, 1, 1)
+anim_speed_min = 7.01
+anim_speed_max = 62.56
+anim_offset_min = 0.3151
+anim_offset_max = 0.637

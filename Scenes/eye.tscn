@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://ei6qc8r46cg1"]
+
+[ext_resource type="Texture2D" uid="uid://by640cylh2r6l" path="res://Assets/Characters/NPCs/Eye/Idle.png" id="1_50oj8"]
+[ext_resource type="Script" path="res://Scripts/eye.gd" id="1_svs6d"]
+[ext_resource type="FontFile" uid="uid://cr21hq35enhfi" path="res://Assets/Fonts/Raleway-ExtraBold.ttf" id="3_i54dg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqdix"]
+atlas = ExtResource("1_50oj8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cvby"]
+atlas = ExtResource("1_50oj8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7hyg"]
+atlas = ExtResource("1_50oj8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxcxb"]
+atlas = ExtResource("1_50oj8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gelv7"]
+atlas = ExtResource("1_50oj8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6su2"]
+atlas = ExtResource("1_50oj8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bnj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqdix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cvby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7hyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxcxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gelv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6su2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voxhe"]
+size = Vector2(168, 584)
+
+[node name="Eye" type="Node2D"]
+script = ExtResource("1_svs6d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(11.5, 11.5)
+sprite_frames = SubResource("SpriteFrames_1bnj8")
+autoplay = "default"
+frame_progress = 0.581035
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -120.0
+offset_top = -200.0
+offset_right = 113.0
+offset_bottom = -166.0
+theme_override_fonts/font = ExtResource("3_i54dg")
+theme_override_font_sizes/font_size = 24
+text = "(Press k to interact)"
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(-260, 20)
+shape = SubResource("RectangleShape2D_voxhe")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

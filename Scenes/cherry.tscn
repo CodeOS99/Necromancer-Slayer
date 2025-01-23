@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=3 uid="uid://bi8lecy03ltac"]
+
+[ext_resource type="Script" path="res://Scripts/cherry.gd" id="1_4jjwq"]
+[ext_resource type="Texture2D" uid="uid://beb84i02bnryu" path="res://Assets/Props Items and VFX/Sunnyland items/Spritesheets/cherry.png" id="1_ay5in"]
+[ext_resource type="Shader" path="res://Scenes/cherry.gdshader" id="1_c75ud"]
+[ext_resource type="Texture2D" uid="uid://cdopkfxn1kh2o" path="res://Assets/Props Items and VFX/Sunnyland FX/Spritesheets/item-feedback.png" id="3_bqp66"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnbh2"]
+shader = ExtResource("1_c75ud")
+shader_parameter/color = Color(1, 0.878431, 0.0901961, 1)
+shader_parameter/width = 1.337
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ho0k"]
+atlas = ExtResource("3_bqp66")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0t1w"]
+atlas = ExtResource("3_bqp66")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hewn"]
+atlas = ExtResource("3_bqp66")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee6l2"]
+atlas = ExtResource("3_bqp66")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yanki"]
+atlas = ExtResource("3_bqp66")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv5wm"]
+atlas = ExtResource("1_ay5in")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5m6m"]
+atlas = ExtResource("1_ay5in")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtobm"]
+atlas = ExtResource("1_ay5in")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7s4l"]
+atlas = ExtResource("1_ay5in")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fmpf"]
+atlas = ExtResource("1_ay5in")
+region = Rect2(84, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysslw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ho0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0t1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hewn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee6l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yanki")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv5wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5m6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtobm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7s4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fmpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fmpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7s4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtobm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5m6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv5wm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i42p6"]
+radius = 19.0263
+
+[node name="Cherry" type="Area2D"]
+script = ExtResource("1_4jjwq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_pnbh2")
+scale = Vector2(2.83333, 2.83333)
+sprite_frames = SubResource("SpriteFrames_ysslw")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i42p6")
+
+[node name="Target" type="Node2D" parent="."]
+position = Vector2(0, -108)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

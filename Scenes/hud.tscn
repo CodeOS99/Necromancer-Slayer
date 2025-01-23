@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7fjmftui1ops"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_24ekf"]
+[ext_resource type="FontFile" uid="uid://cr21hq35enhfi" path="res://Assets/Fonts/Raleway-ExtraBold.ttf" id="2_s3fhu"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_24ekf")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0.301961, 0, 1)
+theme_override_fonts/font = ExtResource("2_s3fhu")
+theme_override_font_sizes/font_size = 60
+text = "Bonus Points: 0"

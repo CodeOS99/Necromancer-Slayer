@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://boexfdd80be1o"]
+
+[ext_resource type="Texture2D" uid="uid://cdgn0t178a1j1" path="res://Assets/necromancerBoss/fireball/fireball.png" id="1_kcqvy"]
+[ext_resource type="Script" path="res://Scripts/fireball.gd" id="1_y28px"]
+[ext_resource type="Texture2D" uid="uid://dy7o84y3i0eg2" path="res://Assets/necromancerBoss/fireball/fireball2.png" id="2_0ay2p"]
+[ext_resource type="Texture2D" uid="uid://dr1awbynpp2hd" path="res://Assets/necromancerBoss/fireball/fireball3.png" id="3_0wv8m"]
+[ext_resource type="Texture2D" uid="uid://dule2cuw1il11" path="res://Assets/necromancerBoss/fireball/fireball4.png" id="4_8xlb6"]
+[ext_resource type="Texture2D" uid="uid://1xwais8b87kt" path="res://Assets/necromancerBoss/fireball/fireball5.png" id="5_uvfrd"]
+[ext_resource type="Texture2D" uid="uid://cddweycyos8da" path="res://Assets/necromancerBoss/fireball/fireball6.png" id="6_ae42g"]
+[ext_resource type="Texture2D" uid="uid://cjtcwuw8bn4d7" path="res://Assets/necromancerBoss/fireball/fireball7.png" id="7_vbijk"]
+[ext_resource type="PackedScene" uid="uid://q6c714l67tcp" path="res://Scenes/killzone.tscn" id="8_35sbd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ic38i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kcqvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0ay2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0wv8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8xlb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uvfrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ae42g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vbijk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wj6u8"]
+radius = 3.78319
+
+[node name="fireball" type="CharacterBody2D"]
+script = ExtResource("1_y28px")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(11.735, 11.735)
+sprite_frames = SubResource("SpriteFrames_ic38i")
+autoplay = "default"
+frame_progress = 0.539557
+
+[node name="Killzone" parent="." instance=ExtResource("8_35sbd")]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_wj6u8")

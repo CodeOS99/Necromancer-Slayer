@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0nakajqfo5mp"]
+
+[ext_resource type="Script" path="res://Scenes/bossroom_door.gd" id="1_2ogda"]
+[ext_resource type="Texture2D" uid="uid://b438aqqeyebuf" path="res://Assets/Environments/SunnyLand/Props/door.png" id="1_ja4uv"]
+[ext_resource type="Texture2D" uid="uid://c142gcfolkpxo" path="res://Assets/Environments/SunnyLand/Props/door-opened.png" id="2_c8co5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2iwj"]
+atlas = ExtResource("1_ja4uv")
+region = Rect2(0, 0, 22, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqgjv"]
+atlas = ExtResource("2_c8co5")
+region = Rect2(0, 0, 22, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1srij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2iwj")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqgjv")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2xg2"]
+size = Vector2(208, 336)
+
+[node name="BossroomDoor" type="Node2D"]
+script = ExtResource("1_2ogda")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10.5455, 10.5455)
+sprite_frames = SubResource("SpriteFrames_1srij")
+animation = &"opened"
+autoplay = "opened"
+
+[node name="ShouldNotGoNow" type="Label" parent="."]
+visible = false
+offset_left = -96.0
+offset_top = -216.0
+offset_right = 108.0
+offset_bottom = -167.0
+text = "You should not leave yet"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_b2xg2")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

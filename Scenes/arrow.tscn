@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsrrgsl8l3ps2"]
+
+[ext_resource type="Texture2D" uid="uid://demygmblim1rm" path="res://Assets/Traps/Arrow Trap/PNGs/Arrow.png" id="1_bnrwd"]
+[ext_resource type="PackedScene" uid="uid://q6c714l67tcp" path="res://Scenes/killzone.tscn" id="2_2ap0p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36lp8"]
+size = Vector2(120, 16)
+
+[node name="Arrow" type="Node2D"]
+
+[node name="Arrow" type="Sprite2D" parent="."]
+scale = Vector2(-5.04, 5.04)
+texture = ExtResource("1_bnrwd")
+
+[node name="Killzone" parent="." instance=ExtResource("2_2ap0p")]
+position = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-4, 24)
+shape = SubResource("RectangleShape2D_36lp8")

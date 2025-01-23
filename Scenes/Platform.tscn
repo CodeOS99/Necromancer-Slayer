@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chaln015amgoe"]
+
+[ext_resource type="Texture2D" uid="uid://w3am01j5a607" path="res://Assets/Environments/SunnyLand/Props/platform-long.png" id="1_y8xam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr72h"]
+size = Vector2(117, 54)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+scale = Vector2(1.54, 1.295)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_pr72h")
+
+[node name="Platform-long" type="Sprite2D" parent="."]
+scale = Vector2(3.59375, 3.59375)
+texture = ExtResource("1_y8xam")

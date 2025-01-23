@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdfvtpqqqks2i"]
+
+[ext_resource type="Texture2D" uid="uid://co70r3ejf2a3l" path="res://Assets/Environments/SunnyLand/Props/spikes.png" id="1_i2qja"]
+[ext_resource type="PackedScene" uid="uid://q6c714l67tcp" path="res://Scenes/killzone.tscn" id="2_w5xda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkb4a"]
+size = Vector2(14, 8)
+
+[node name="Spikes" type="Sprite2D"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_i2qja")
+
+[node name="Killzone" parent="." instance=ExtResource("2_w5xda")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_qkb4a")
