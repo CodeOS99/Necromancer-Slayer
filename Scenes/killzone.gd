@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
-var canKill = false
+var canKill = true
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and $"..".visible and canKill:
