@@ -2,6 +2,8 @@
 A platformer game created using, and to learn, Godot. 
 The protagonist is a fox, set out to beat the Necromancer.
 
+<a href="https://codeos99.itch.io/necromancer-slayer">itch.io link</a>
+
 ## Controls
 ### W,A,S,D/Up,Left,Down,Right
 To move
@@ -36,4 +38,5 @@ To destroy the obelisk, get close enough to them, where the text about how to de
 ### End
 Not much to it. If all seven of the bonus points are collected, the bottom text glows in celebration.
 
+Play in full screen for the best experience.
 Enjoy :D
